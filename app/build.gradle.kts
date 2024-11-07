@@ -92,4 +92,7 @@ dependencies {
     kapt(libs.hilt.android.compiler)
     kapt(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
+
+    // Lottie Compose
+    implementation(libs.lottieCompose)
 }

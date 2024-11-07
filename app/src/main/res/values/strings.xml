@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Dog Challenge</string>
+
+    <!-- Loading View -->
+    <string name="loading_view_title">Loading...</string>
 </resources>
