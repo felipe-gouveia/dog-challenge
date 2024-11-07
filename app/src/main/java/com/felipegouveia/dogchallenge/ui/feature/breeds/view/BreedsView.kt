@@ -25,8 +25,6 @@ import com.felipegouveia.dogchallenge.ui.common.LoadingView
 import com.felipegouveia.dogchallenge.ui.feature.breeds.model.BreedUiModel
 import com.felipegouveia.dogchallenge.ui.navigation.Screens
 import com.felipegouveia.dogchallenge.ui.navigation.navigateToBreedImages
-import com.felipegouveia.dogchallenge.ui.state.ShowBreeds
-import com.felipegouveia.dogchallenge.ui.state.UiState
 import com.felipegouveia.dogchallenge.ui.theme.Small
 
 @Composable
@@ -34,10 +32,10 @@ fun BreedsView(viewModel: BreedsViewModel = hiltViewModel(), navController: NavH
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     Column {
-        when(uiState) {
-            UiState.Error -> ErrorView { viewModel.listBreeds() }
-            UiState.Loading -> LoadingView()
-            is ShowBreeds -> BreedsListView((uiState as ShowBreeds).content) {
+        when(val immutable = uiState) {
+            BreedsUiState.Error -> ErrorView { viewModel.listBreeds() }
+            BreedsUiState.Loading -> LoadingView()
+            is BreedsUiState.ShowBreeds -> BreedsListView(immutable.content) {
                 navController.navigateToBreedImages(it)
             }
         }

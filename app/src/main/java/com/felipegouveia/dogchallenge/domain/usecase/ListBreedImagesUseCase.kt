@@ -4,5 +4,5 @@ import com.felipegouveia.dogchallenge.domain.model.BreedImage
 import kotlinx.coroutines.flow.Flow
 
 interface ListBreedImagesUseCase {
-    suspend operator fun invoke(breedName: String, amount: Int = 10): Flow<List<BreedImage>>
+    operator fun invoke(breedName: String, amount: Int = 10): Flow<List<BreedImage>>
 }

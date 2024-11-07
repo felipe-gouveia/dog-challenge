@@ -1,6 +1,7 @@
 package com.felipegouveia.dogchallenge.domain.usecase.di
 
 import com.felipegouveia.dogchallenge.domain.usecase.ListBreedImagesUseCase
+import com.felipegouveia.dogchallenge.domain.usecase.ListBreedImagesUseCaseImpl
 import com.felipegouveia.dogchallenge.domain.usecase.ListBreedsUseCase
 import com.felipegouveia.dogchallenge.domain.usecase.ListBreedsUseCaseImpl
 import dagger.Binds
@@ -16,6 +17,6 @@ abstract class BreedsUseCaseModule {
 
     @Binds
     abstract fun provideBreedsImageUseCase(
-        breedImagesUseCase: ListBreedImagesUseCase
+        breedImagesUseCase: ListBreedImagesUseCaseImpl
     ): ListBreedImagesUseCase
 }

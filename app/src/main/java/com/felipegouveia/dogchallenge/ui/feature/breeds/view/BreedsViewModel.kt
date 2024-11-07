@@ -2,11 +2,9 @@ package com.felipegouveia.dogchallenge.ui.feature.breeds.view
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.felipegouveia.dogchallenge.core.DispatcherFactory
+import com.felipegouveia.dogchallenge.core.dispatcher.DispatcherFactory
 import com.felipegouveia.dogchallenge.domain.usecase.ListBreedsUseCase
 import com.felipegouveia.dogchallenge.ui.feature.breeds.mapper.toUiModel
-import com.felipegouveia.dogchallenge.ui.state.ShowBreeds
-import com.felipegouveia.dogchallenge.ui.state.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -20,11 +18,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BreedsViewModel @Inject constructor(
-    private val breedsUseCase: ListBreedsUseCase,
+    private val listBreedsUseCase: ListBreedsUseCase,
     private val dispatcherFactory: DispatcherFactory
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow<UiState>(UiState.Loading)
+    private val _uiState = MutableStateFlow<BreedsUiState>(BreedsUiState.Loading)
     val uiState = _uiState.asStateFlow()
 
     init {
@@ -32,11 +30,11 @@ class BreedsViewModel @Inject constructor(
     }
 
     fun listBreeds() {
-        breedsUseCase()
+        listBreedsUseCase()
             .map { it.toUiModel() }
-            .onStart { _uiState.value = UiState.Loading }
-            .onEach { _uiState.value = ShowBreeds(it) }
-            .catch { _uiState.value = UiState.Error }
+            .onStart { _uiState.value = BreedsUiState.Loading }
+            .onEach { _uiState.value = BreedsUiState.ShowBreeds(it) }
+            .catch { _uiState.value = BreedsUiState.Error }
             .flowOn(dispatcherFactory.io())
             .launchIn(viewModelScope)
     }

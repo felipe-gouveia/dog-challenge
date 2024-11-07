@@ -1,4 +1,4 @@
-package com.felipegouveia.dogchallenge.core
+package com.felipegouveia.dogchallenge.core.dispatcher
 
 import dagger.Binds
 import dagger.Module

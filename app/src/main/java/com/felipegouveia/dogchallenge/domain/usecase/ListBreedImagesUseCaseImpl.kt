@@ -6,6 +6,6 @@ import javax.inject.Inject
 class ListBreedImagesUseCaseImpl @Inject constructor(
     private val repository: ListBreedImages
 ) : ListBreedImagesUseCase {
-    override suspend operator fun invoke(breedName: String, amount: Int) =
+    override operator fun invoke(breedName: String, amount: Int) =
         repository.listBreedImages(breedName, amount)
 }

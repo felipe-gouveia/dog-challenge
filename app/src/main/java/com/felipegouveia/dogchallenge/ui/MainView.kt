@@ -3,7 +3,7 @@ package com.felipegouveia.dogchallenge.ui
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import com.felipegouveia.dogchallenge.ui.feature.breedimages.breedImagesViewDestination
+import com.felipegouveia.dogchallenge.ui.feature.breedimages.view.breedImagesViewDestination
 import com.felipegouveia.dogchallenge.ui.feature.breeds.view.breedsViewDestination
 import com.felipegouveia.dogchallenge.ui.navigation.Screens
 
