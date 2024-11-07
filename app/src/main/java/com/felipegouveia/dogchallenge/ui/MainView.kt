@@ -3,6 +3,7 @@ package com.felipegouveia.dogchallenge.ui
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.felipegouveia.dogchallenge.ui.feature.breedimages.breedImagesViewDestination
 import com.felipegouveia.dogchallenge.ui.feature.breeds.view.breedsViewDestination
 import com.felipegouveia.dogchallenge.ui.navigation.Screens
 
@@ -10,7 +11,8 @@ import com.felipegouveia.dogchallenge.ui.navigation.Screens
 fun MainView() {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Screens.BREEDS.name) {
-        breedsViewDestination()
+    NavHost(navController = navController, startDestination = Screens.BREEDS.path) {
+        breedsViewDestination(navController)
+        breedImagesViewDestination()
     }
 }

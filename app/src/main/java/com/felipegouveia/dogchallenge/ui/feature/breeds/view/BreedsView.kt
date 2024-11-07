@@ -18,24 +18,28 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.felipegouveia.dogchallenge.ui.common.ErrorView
 import com.felipegouveia.dogchallenge.ui.common.LoadingView
 import com.felipegouveia.dogchallenge.ui.feature.breeds.model.BreedUiModel
 import com.felipegouveia.dogchallenge.ui.navigation.Screens
+import com.felipegouveia.dogchallenge.ui.navigation.navigateToBreedImages
 import com.felipegouveia.dogchallenge.ui.state.ShowBreeds
 import com.felipegouveia.dogchallenge.ui.state.UiState
 import com.felipegouveia.dogchallenge.ui.theme.Small
 
 @Composable
-fun BreedsView(viewModel: BreedsViewModel = hiltViewModel()) {
+fun BreedsView(viewModel: BreedsViewModel = hiltViewModel(), navController: NavHostController) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     Column {
         when(uiState) {
             UiState.Error -> ErrorView { viewModel.listBreeds() }
             UiState.Loading -> LoadingView()
-            is ShowBreeds -> BreedsListView((uiState as ShowBreeds).content) {}
+            is ShowBreeds -> BreedsListView((uiState as ShowBreeds).content) {
+                navController.navigateToBreedImages(it)
+            }
         }
     }
 }
@@ -69,8 +73,8 @@ private fun BreedItem(uiModel: BreedUiModel, onClick: () -> Unit) {
     }
 }
 
-fun NavGraphBuilder.breedsViewDestination() {
-    composable(route = Screens.BREEDS.value) {
-        BreedsView()
+fun NavGraphBuilder.breedsViewDestination(navController: NavHostController) {
+    composable(route = Screens.BREEDS.path) {
+        BreedsView(navController = navController)
     }
 }
