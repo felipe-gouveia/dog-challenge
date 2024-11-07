@@ -3,4 +3,8 @@
 
     <!-- Loading View -->
     <string name="loading_view_title">Loading...</string>
+
+    <!-- Error View -->
+    <string name="error_view_title">Something went wrong :(</string>
+    <string name="error_view_retry">Retry!</string>
 </resources>

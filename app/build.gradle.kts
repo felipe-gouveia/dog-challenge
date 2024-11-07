@@ -135,4 +135,8 @@ dependencies {
 
     // Navigation
     implementation(libs.navigationCompose)
+
+    // Coil
+    implementation(libs.coil)
+    implementation(libs.coilOkHttp)
 }
