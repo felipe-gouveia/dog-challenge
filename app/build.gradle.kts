@@ -95,4 +95,10 @@ dependencies {
 
     // Lottie Compose
     implementation(libs.lottieCompose)
+
+    // ViewModel Compose
+    implementation(libs.viewModelCompose)
+
+    // Navigation
+    implementation(libs.navigationCompose)
 }

@@ -15,6 +15,8 @@ okHttpVersion = "4.11.0"
 daggerHilt = "2.48"
 hiltNavigation = "1.2.0"
 lottieComposeVersion = "4.0.0"
+viewModelComposeVersion = "2.8.7"
+navigationComposeVersion = "2.8.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -49,6 +51,12 @@ hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-com
 
 # Lottie
 lottieCompose = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottieComposeVersion" }
+
+# ViewModel Compose
+viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "viewModelComposeVersion"}
+
+# Navigation Compose
+navigationCompose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationComposeVersion"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

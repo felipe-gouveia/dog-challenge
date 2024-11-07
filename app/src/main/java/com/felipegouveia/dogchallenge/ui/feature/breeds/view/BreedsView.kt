@@ -7,13 +7,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.composable
 import com.felipegouveia.dogchallenge.ui.common.ErrorView
 import com.felipegouveia.dogchallenge.ui.common.LoadingView
+import com.felipegouveia.dogchallenge.ui.navigation.Screens
 import com.felipegouveia.dogchallenge.ui.state.UiState
 
-@Preview
 @Composable
 fun BreedsView(viewModel: BreedsViewModel = hiltViewModel()) {
     val uiState by viewModel.uiState.collectAsState(initial = UiState.Loading)
@@ -30,5 +32,11 @@ fun BreedsView(viewModel: BreedsViewModel = hiltViewModel()) {
         AnimatedVisibility(visible = uiState is UiState.Error, enter = fadeIn(), exit = fadeOut()) {
             ErrorView { viewModel.listBreeds() }
         }
+    }
+}
+
+fun NavGraphBuilder.breedsViewDestination() {
+    composable(route = Screens.BREEDS.name) {
+        BreedsView()
     }
 }
