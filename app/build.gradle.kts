@@ -1,8 +1,12 @@
+import kotlinx.kover.gradle.plugin.dsl.AggregationType
+import kotlinx.kover.gradle.plugin.dsl.MetricType
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.org.jetbrains.kotlin.kapt)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.kover)
 }
 
 android {
@@ -53,6 +57,34 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+
+    koverReport {
+
+        androidReports("debug") {
+            filters {
+                excludes {
+                    annotatedBy("androidx.compose.ui.tooling.preview.Preview")
+                }
+            }
+
+            verify {
+                rule("line-coverage") {
+                    bound {
+                        aggregation = AggregationType.COVERED_PERCENTAGE
+                        metric = MetricType.LINE
+                        minValue = 90
+                    }
+                }
+                rule("branch-coverage") {
+                    bound {
+                        aggregation = AggregationType.COVERED_PERCENTAGE
+                        metric = MetricType.BRANCH
+                        minValue = 80
+                    }
+                }
+            }
         }
     }
 }
