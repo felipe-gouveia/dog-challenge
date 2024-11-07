@@ -9,6 +9,8 @@ android {
     namespace = "com.felipegouveia.dogchallenge"
     compileSdk = 35
 
+    android.buildFeatures.buildConfig = true
+
     defaultConfig {
         applicationId = "com.felipegouveia.dogchallenge"
         minSdk = 24
@@ -23,7 +25,11 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "DOG_API_BASE_URL", "\"https://dog.ceo/api/\"")
+        }
         release {
+            buildConfigField("String", "DOG_API_BASE_URL", "\"https://dog.ceo/api/\"")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
