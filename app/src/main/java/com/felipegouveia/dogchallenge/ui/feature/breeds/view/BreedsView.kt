@@ -70,7 +70,7 @@ private fun BreedItem(uiModel: BreedUiModel, onClick: () -> Unit) {
 }
 
 fun NavGraphBuilder.breedsViewDestination() {
-    composable(route = Screens.BREEDS.name) {
+    composable(route = Screens.BREEDS.value) {
         BreedsView()
     }
 }

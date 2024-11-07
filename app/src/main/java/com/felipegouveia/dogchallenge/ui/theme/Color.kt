@@ -1,3 +1,4 @@
+@file:Suppress("MagicNumber")
 package com.felipegouveia.dogchallenge.ui.theme
 
 import androidx.compose.ui.graphics.Color

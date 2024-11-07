@@ -10,7 +10,7 @@ import dagger.hilt.android.components.ViewModelComponent
 
 @Module
 @InstallIn(ViewModelComponent::class)
-abstract class BreedsUseCasesModule {
+abstract class BreedsUseCaseModule {
     @Binds
     abstract fun provideBreedsUseCase(breedsUseCase: ListBreedsUseCaseImpl): ListBreedsUseCase
 
