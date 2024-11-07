@@ -18,6 +18,7 @@ lottieComposeVersion = "4.0.0"
 viewModelComposeVersion = "2.8.7"
 navigationComposeVersion = "2.8.3"
 koverVersion = "0.7.6"
+detektVersion = "1.23.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -65,4 +66,5 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 org-jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt"}
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "koverVersion"}
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detektVersion"}
 

@@ -9,6 +9,8 @@ plugins {
     alias(libs.plugins.kover)
 }
 
+apply(from = "$rootDir/gradle/detekt.gradle")
+
 android {
     namespace = "com.felipegouveia.dogchallenge"
     compileSdk = 35
