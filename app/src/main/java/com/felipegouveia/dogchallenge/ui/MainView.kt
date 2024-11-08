@@ -10,7 +10,6 @@ import com.felipegouveia.dogchallenge.ui.navigation.Screens
 @Composable
 fun MainView() {
     val navController = rememberNavController()
-
     NavHost(navController = navController, startDestination = Screens.BREEDS.path) {
         breedsViewDestination(navController)
         breedImagesViewDestination()

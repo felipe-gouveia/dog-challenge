@@ -1,4 +1,4 @@
-package com.felipegouveia.dogchallenge.ui.feature.breedimages.view
+package com.felipegouveia.dogchallenge.ui.feature.breedimages.state
 
 import com.felipegouveia.dogchallenge.ui.feature.breedimages.model.BreedImagesUiModel
 

@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.felipegouveia.dogchallenge.core.dispatcher.DispatcherFactory
 import com.felipegouveia.dogchallenge.domain.usecase.ListBreedImagesUseCase
 import com.felipegouveia.dogchallenge.ui.feature.breedimages.mapper.toUiModel
+import com.felipegouveia.dogchallenge.ui.feature.breedimages.state.BreedImagesUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
